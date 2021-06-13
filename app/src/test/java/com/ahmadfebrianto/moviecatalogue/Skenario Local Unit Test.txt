@@ -1,0 +1,75 @@
+- MovieViewModelTest
+    - Memuat data MOVIES
+        - Memanipulasi data ketika pemanggilan data movies di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data dan jumlah movies sesuai.
+        - Melakukan pengecekan jika data movies yang dimuat adalah kosong.
+
+- TvShowViewModelTest
+    - Memuat data TV SHOWS
+        - Memanipulasi data ketika pemanggilan data tv shows di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data dan jumlah tv shows sesuai.
+        - Melakukan pengecekan jika data tv shows yang dimuat adalah kosong.
+
+- DetailViewModelTest
+    - Memuat item movie
+        - Memanipulasi data ketika pemanggilan data movie di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data movie sesuai.
+
+    - Memuat item tv show
+        - Memanipulasi data ketika pemanggilan data tv show di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data movie sesuai.
+
+- FavoriteMovieViewModelTest
+    - Memuat Favorite Movies
+        - Memanipulasi data ketika pemanggilan data movie di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data dan jumlah favorite movies sesuai.
+        - Melakukan pengecekan jika data favorite movies yang dimuat adalah kosong.
+
+- FavoriteTvShowViewModelTest
+    - Memuat Favorite TvShows
+        - Memanipulasi data ketika pemanggilan data tv show di kelas repository.
+        - Memastikan metode di kelas repository terpanggil.
+        - Memastikan observer bisa memuat data saat terjadi perubahan.
+        - Memastikan data dan jumlah favorite tv shows sesuai.
+        - Melakukan pengecekan jika data favorite tv shows yang dimuat adalah kosong.
+
+- CatalogRepositoryTest
+    - Memuat semua data movies.
+        - Memastikan fungsi untuk mengambil data movies dari repository berjalan.
+        - Memastikan data movies tidak null.
+        - Memastikan jumlah data movies cocok/sesuai.
+
+    - Memuat semua data tv shows.
+        - Memastikan fungsi untuk mengambil data tv shows dari repository berjalan.
+        - Memastikan data tv shows tidak null.
+        - Memastikan jumlah data tv shows cocok/sesuai.
+
+    - Memuat data movie berdasarkan ID.
+        - Memastikan fungsi untuk mengambil data movies berdasarkan ID dari repository berjalan.
+        - Memastikan item movie ada.
+        - Memastikan data movie tidak null.
+
+    - Memuat data tv show berdasarkan ID.
+        - Memastikan fungsi untuk mengambil data tv show berdasarkan ID dari repository berjalan.
+        - Memastikan item tv show ada.
+        - Memastikan data tv show tidak null.
+
+    - Memuat data favorite movies
+        - Memastikan fungsi untuk mengambil data favorite movies dari repository berjalan.
+        - Memastikan data favorite movies tidak null.
+        - Memastikan jumlah data favorite movies cocok/sesuai.
+
+    - Memuat data favorite tv shows
+        - Memastikan fungsi untuk mengambil data favorite tv shows dari repository berjalan.
+        - Memastikan data favorite tv shows tidak null.
+        - Memastikan jumlah data favorite tv shows cocok/sesuai.

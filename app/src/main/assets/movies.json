@@ -1,0 +1,92 @@
+[
+  {
+    "movieId": "mv1",
+    "title": "The Shawshank Redemption",
+    "description": "In 1947 Portland, Maine, banker Andy Dufresne is convicted of murdering his wife and her lover and is sentenced to two consecutive life sentences at the Shawshank State Penitentiary. He is befriended by Ellis \"Red\" Redding, an inmate and prison contraband smuggler serving a life sentence.",
+    "rating": "9.3",
+    "release_year": "1994",
+    "stars": "Tim Robbins, Morgan Freeman, Bob Gunton",
+    "director": "Frank Darabont"
+  },
+  {
+    "movieId": "mv2",
+    "title": "The Godfather",
+    "description": "It is the first installment in The Godfather trilogy. The story, spanning from 1945 to 1955, chronicles the Corleone family under patriarch Vito Corleone (Brando), focusing on the transformation of his youngest son, Michael Corleone (Pacino), from reluctant family outsider to ruthless mafia boss.",
+    "rating": "9.2",
+    "release_year": "1972",
+    "stars": "Marlon Brando, Al Pacino, James Caan",
+    "director": "Francis Ford Coppola"
+  },
+  {
+    "movieId": "mv3",
+    "title": "The Dark Knight",
+    "description": "The Dark Knight is a 2008 superhero film directed, produced, and co-written by Christopher Nolan. Based on the DC Comics character Batman, the film is the second installment of Nolan's The Dark Knight Trilogy and a sequel to 2005's Batman Begins, starring Christian Bale and supported by Michael Caine, Heath Ledger, Gary Oldman, Aaron Eckhart, Maggie Gyllenhaal, and Morgan Freeman. In the film, Bruce Wayne / Batman (Bale), Police Lieutenant James Gordon (Oldman) and District Attorney Harvey Dent (Eckhart) form an alliance to dismantle organized crime in Gotham City, but are menaced by an anarchistic mastermind known as the Joker (Ledger), who seeks to undermine Batman's influence and throw the city into anarchy.",
+    "rating": "9.0",
+    "release_year": "2008",
+    "stars": "Christian Bale, Heath Ledger, Aaron Eckhart",
+    "director": "Christopher Nolan"
+  },
+  {
+    "movieId": "mv4",
+    "title": "12 Angry Men",
+    "description": "The film focuses on a jury's deliberations in a capital murder case. A 12-man jury is sent to begin deliberations in the first-degree murder trial of an 18-year old Puerto Rican boy accused in the stabbing death of his father, where a guilty verdict means an automatic death sentence.",
+    "rating": "9.0",
+    "release_year": "1957",
+    "stars": "Henry Fonda, Lee J. Cobb, Martin Balsam",
+    "director": "Sidney Lumet"
+  },
+  {
+    "movieId": "mv5",
+    "title": "Schindler's List",
+    "description": "Schindler's List chronicles the trials and triumph of one man who made a difference and the tribulations of those who survived one of the darkest chapters in human history because of his actions. Businessman Oskar Schindler arrives in Krakow in 1939, ready to make his fortune from World War II, which has just started.",
+    "rating": "8.9",
+    "release_year": "1993",
+    "stars": "Liam Neeson, Ralph Fiennes, Ben Kingsley",
+    "director": "Steven Spielberg"
+  },
+  {
+    "movieId": "mv6",
+    "title": "The Lord of the Rings",
+    "description": "The film begins with a summary of the prehistory of the ring of power. Long ago, twenty rings existed: three for elves, seven for dwarves, nine for men, and one made by the Dark Lord Sauron, in Mordor, which would rule all the others. Sauron poured all his evil and his will to dominate into this ring. An alliance of elves and humans resisted Sauron’s ring and fought against Mordor. They won the battle and the ring fell to Isildur, the son of the king of Gondor, but just as he was about to destroy the ring in Mount Doom, he changed his mind and held on to it for himself. Later he was killed, and the ring fell to the bottom of the sea. The creature Gollum discovered it and brought it to his cave. Then he lost it to the hobbit Bilbo Baggins.",
+    "rating": "8.9",
+    "release_year": "2003",
+    "stars": "Elijah Wood, Viggo Mortensen, Ian McKellen",
+    "director": "Peter Jackson"
+  },
+  {
+    "movieId": "mv7",
+    "title": "Pulp Fiction",
+    "description": "Image result for pulp fiction description\nThe title refers to the pulp magazines and hardboiled crime novels popular during the mid-20th century, known for their graphic violence and punchy dialogue. Tarantino wrote Pulp Fiction in 1992 and 1993, incorporating scenes that Avary originally wrote for True Romance (1993).",
+    "rating": "8.9",
+    "release_year": "1994",
+    "stars": "John Travolta, Uma Thurman, Samuel L. Jackson",
+    "director": "Quentin Tarantino"
+  },
+  {
+    "movieId": "mv8",
+    "title": "The Good, the Bad and the Ugly",
+    "description": "The film tells the story of three men who pursue, often at the expense of others, information about the location of a buried treasure of coins. The first character introduced in the movie is Tuco Benedicto Pacifico Juan Maria Ramirez (the Ugly) - called Tuco - (Eli Wallach), who has a bounty on his head for numerous crimes. Tuco has a partnership with Blondie (The Good, played by Clint Eastwood) in which the latter turns him in for the reward money which the two then split after Blondie saves Tuco from hanging at the last moment. Meanwhile, a third character called Angel Eyes (Lee Van Cleef, playing the Bad) has learned of a hidden trunk of gold owned by a Confederate soldier named Bill Carson. He sets off to find the gold.",
+    "rating": "8.8",
+    "release_year": "1966",
+    "stars": "Clint Eastwood, Eli Wallach, Lee Van Cleef",
+    "director": "Sergio Leone"
+  },
+  {
+    "movieId": "mv9",
+    "title": "Fight Club",
+    "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more. A nameless first person narrator (Edward Norton) attends support groups in attempt to subdue his emotional state and relieve his insomniac state.",
+    "rating": "8.8",
+    "release_year": "1999",
+    "stars": "Brad Pitt, Edward Norton, Meat Loaf",
+    "director": "David Fincher"
+  },
+  {
+    "movieId": "mv10",
+    "title": "Forrest Gump",
+    "description": "Forrest Gump is a 1994 American drama film directed by Robert Zemeckis and written by Eric Roth with comedic aspects. It is based on the 1986 novel of the same name by Winston Groom and stars Tom Hanks, Robin Wright, Gary Sinise, Mykelti Williamson and Sally Field. The story depicts several decades in the life of Forrest Gump (Hanks), a slow-witted but kind-hearted man from Alabama who witnesses and unwittingly influences several defining historical events in the 20th century United States. The film differs substantially from the novel.",
+    "rating": "8.8",
+    "release_year": "1994",
+    "stars": "Tom Hanks, Robin Wright, Gary Sinise",
+    "director": "Robert Zemeckis"
+  }
+]

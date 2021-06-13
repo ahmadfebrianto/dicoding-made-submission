@@ -1,0 +1,92 @@
+[
+  {
+    "movieId": "tv1",
+    "title": "Band of Brothers",
+    "description": "Band of Brothers is a dramatized account of \"Easy Company\" (part of the 2nd Battalion, 506th Parachute Infantry Regiment), assigned to the United States Army's 101st Airborne Division during World War II. Over ten episodes the series details the company's exploits during the war.",
+    "rating": "9.4",
+    "release_year": "2001",
+    "stars": "Scott Grimes, Damian Lewis, Ron Livingston",
+    "director": "David Frankel"
+  },
+  {
+    "movieId": "tv2",
+    "title": "Breaking Bad",
+    "description": "Set in Albuquerque, New Mexico, between 2008 and 2010, Breaking Bad follows Walter White, a meek high school chemistry teacher who transforms into a ruthless player in the local methamphetamine drug trade, driven by a desire to financially provide for his family after being diagnosed with terminal lung cancer.",
+    "rating": "9.4",
+    "release_year": "2008",
+    "stars": "Bryan Cranston, Aaron Paul, Anna Gunn",
+    "director": "Vince Gilligan"
+  },
+  {
+    "movieId": "tv3",
+    "title": "Chernobyl",
+    "description": "Chernobyl is a 2019 historical drama television miniseries that revolves around the Chernobyl disaster of 1986 and the cleanup efforts that followed. The series was created and written by Craig Mazin and directed by Johan Renck. It features an ensemble cast led by Jared Harris, Stellan Skarsgård, Emily Watson and Paul Ritter. The series was produced by HBO in the United States and Sky UK in the United Kingdom.",
+    "rating": "9.4",
+    "release_year": "2019",
+    "stars": "Jessie Buckley, Jared Harris, Stellan Skarsgård",
+    "director": "Craig Mazin"
+  },
+  {
+    "movieId": "tv4",
+    "title": "The Wire",
+    "description": "The Wire is an American crime drama television series created and primarily written by author and former police reporter David Simon. The series was broadcast by the cable network HBO in the United States. The Wire premiered on June 2, 2002 and ended on March 9, 2008, comprising 60 episodes over five seasons. The idea for the show started out as a police drama loosely based on the experiences of his writing partner Ed Burns, a former homicide detective and public school teacher.",
+    "rating": "9.3",
+    "release_year": "2002",
+    "stars": "Dominic West, Lance Reddick, Sonja Sohn",
+    "director": "David Simon"
+  },
+  {
+    "movieId": "tv5",
+    "title": "Cosmos: A Spacetime Odyssey",
+    "description": "Cosmos: A Spacetime Odyssey is a 2014 American science documentary television series. The show is a follow-up to the 1980 television series Cosmos: A Personal Voyage, which was presented by Carl Sagan on the Public Broadcasting Service and is considered a milestone for scientific documentaries. This series was developed to bring back the foundation of science to network television at the height of other scientific-based television series and films. The show is presented by astrophysicist Neil deGrasse Tyson, who, as a young high school student, was inspired by Sagan. Among the executive producers are Seth MacFarlane, whose financial investment was instrumental in bringing the show to broadcast television, and Ann Druyan, a co-author and co-creator of the original television series and Sagan's wife. The show is produced by Brannon Braga, and Alan Silvestri composed the backing score.",
+    "rating": "9.3",
+    "release_year": "2014",
+    "stars": "Neil deGrasse Tyson, Stoney Emshwiller, Piotr Michael",
+    "director": "Brannon Braga"
+  },
+  {
+    "movieId": "tv6",
+    "title": "Avatar: The Last Airbender ",
+    "description": "Avatar: The Last Airbender, known as Avatar: The Legend of Aang in some regions, is an American animated television series produced by Nickelodeon Animation Studios. It was co-created by Michael Dante DiMartino and Bryan Konietzko, with Aaron Ehasz as head writer. It aired on Nickelodeon for three seasons, from February 2005 to July 2008. Avatar is set in an Asiatic-like world in which some people can manipulate one of the four elements—water, earth, fire, or air—with telekinetic variants of the Chinese martial arts known as \"bending\". The only individual who can bend all four elements, the \"Avatar\", is responsible for maintaining harmony between the world's four nations, and serves as the bridge between the spirit world and the physical world. The show is presented in a style that combines anime with American cartoons, and relies on the imagery of mainly East Asian culture, with some South Asian, New World, and Inuit and Sireniki influences.",
+    "rating": "9.3",
+    "release_year": "2005",
+    "stars": "Dee Bradley Baker, Zach Tyler, Mae Whitman",
+    "director": "Michael Dante DiMartino, Bryan Konietzko"
+  },
+  {
+    "movieId": "tv7",
+    "title": "Game of Thrones",
+    "description": "Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, a series of fantasy novels by George R. R. Martin, the first of which is A Game of Thrones. The show was shot in the United Kingdom, Canada, Croatia, Iceland, Malta, Morocco, and Spain. It premiered on HBO in the United States on April 17, 2011, and concluded on May 19, 2019, with 73 episodes broadcast over eight seasons.",
+    "rating": "9.3",
+    "release_year": "2011",
+    "stars": "Emilia Clarke, Peter Dinklage, Kit Harington ",
+    "director": "David Benioff, D.B. Weiss"
+  },
+  {
+    "movieId": "tv8",
+    "title": "The Sopranos",
+    "description": "The Sopranos is an American crime drama television series created by David Chase. The story revolves around Tony Soprano (James Gandolfini), a New Jersey-based Italian-American mobster, portraying the difficulties that he faces as he tries to balance his family life with his role as the leader of a criminal organization. These are explored during his therapy sessions with psychiatrist Jennifer Melfi (Lorraine Bracco). The series features Tony's family members, mafia colleagues, and rivals in prominent roles—most notably his wife Carmela (Edie Falco) and his protégé/distant cousin Christopher Moltisanti (Michael Imperioli).",
+    "rating": "9.2",
+    "release_year": "1999",
+    "stars": "James Gandolfini, Lorraine Bracco, Edie Falco",
+    "director": "David Chase"
+  },
+  {
+    "movieId": "tv9",
+    "title": "Rick and Morty",
+    "description": "Rick and Morty is an American adult animated science fiction sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime Adult Swim programming block. The series follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.",
+    "rating": "9.2",
+    "release_year": "2013",
+    "stars": "Justin Roiland, Chris Parnell, Spencer Grammer",
+    "director": "Dan Harmon, Justin Roiland"
+  },
+  {
+    "movieId": "tv10",
+    "title": "Fullmetal Alchemist: Brotherhood",
+    "description": "Fullmetal Alchemist: Brotherhood is a Japanese anime television series adapted from the Fullmetal Alchemist manga by Hiromu Arakawa. Produced by Bones, the series is directed by Yasuhiro Irie, written by Hiroshi Ōnogi and composed by Akira Senju. Fullmetal Alchemist: Brotherhood is the second anime television series based on Fullmetal Alchemist, the first being 2003's Fullmetal Alchemist. Unlike the previous adaptation, Brotherhood is a faithful adaptation directly following the original events of the manga. The series ran for 64 episodes on MBS–TBS from April 2009 to July 2010. ",
+    "rating": "9.1",
+    "release_year": "2009",
+    "stars": "Kent Williams, Iemasa Kayumi, Vic Mignogna",
+    "director": "Hiromu Arakawa"
+  }
+]

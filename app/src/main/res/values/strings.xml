@@ -1,0 +1,39 @@
+<resources>
+
+    <string name="app_name">Movie Catalogue</string>
+
+    <!--ITEM BASE ROW-->
+    <string name="rating_placeholder">Rating: %1$s</string>
+    <string name="release_placeholder">Release: %1$s</string>
+
+    <string name="title">Title</string>
+    <string name="title_value">Movie Title</string>
+
+    <string name="rating">Rating</string>
+    <string name="rating_value">Movie Rating</string>
+
+    <string name="release_year">Release Year</string>
+    <string name="release_year_value">Movie Release Year</string>
+
+    <string name="description">Description</string>
+    <string name="description_value">Movie Description</string>
+
+
+    <!--MAIN AND FAVORITE PAGE-->
+    <string name="movies">Movies</string>
+    <string name="tv_shows">Tv Shows</string>
+
+    <string name="title_activity_favorite">FavoriteActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <!--DETAIL PAGE-->
+    <string name="detail_page">Detail Page</string>
+
+    <!--FAVORITE PAGE-->
+    <string name="favorites_page">Favorite Page</string>
+    <string name="favorite_catalog">Favorite Catalog</string>
+
+    <string name="data_empty">No data at the moment</string>
+
+</resources>
