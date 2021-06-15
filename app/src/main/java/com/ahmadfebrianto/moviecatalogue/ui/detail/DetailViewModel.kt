@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.ahmadfebrianto.moviecatalogue.data.CatalogRepository
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
-import com.ahmadfebrianto.moviecatalogue.vo.Resource
 
 class DetailViewModel(private val catalogRepository: CatalogRepository) : ViewModel() {
 
@@ -17,25 +16,29 @@ class DetailViewModel(private val catalogRepository: CatalogRepository) : ViewMo
         this.itemId.value = id
     }
 
-    var itemMovie: LiveData<Resource<MovieEntity>> =
+    var itemMovie: LiveData<MovieEntity> =
         Transformations.switchMap(itemId) { id ->
             catalogRepository.getMovieById(id)
         }
 
-    var itemTvShow: LiveData<Resource<TvShowEntity>> =
+    var itemTvShow: LiveData<TvShowEntity> =
         Transformations.switchMap(itemId) { id ->
             catalogRepository.getTvShowById(id)
         }
 
     fun setFavoriteMovie() {
-        val movie = itemMovie.value?.data!!
-        val newState = !itemMovie.value?.data!!.isFavorite
-        catalogRepository.setFavoriteMovie(movie, newState)
+        val movie = itemMovie.value
+        val newState = !itemMovie.value!!.isFavorite
+        if (movie != null) {
+            catalogRepository.setFavoriteMovie(movie, newState)
+        }
     }
 
     fun setFavoriteTvShow() {
-        val tvShow = itemTvShow.value?.data!!
-        val newState = !itemTvShow.value?.data!!.isFavorite
-        catalogRepository.setFavoriteTvShow(tvShow, newState)
+        val tvShow = itemTvShow.value
+        val newState = !itemTvShow.value!!.isFavorite
+        if (tvShow != null) {
+            catalogRepository.setFavoriteTvShow(tvShow, newState)
+        }
     }
 }

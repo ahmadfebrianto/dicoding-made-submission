@@ -9,7 +9,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.ahmadfebrianto.moviecatalogue.R
-import com.ahmadfebrianto.moviecatalogue.data.source.remote.response.CatalogResponse
 import com.ahmadfebrianto.moviecatalogue.utils.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before

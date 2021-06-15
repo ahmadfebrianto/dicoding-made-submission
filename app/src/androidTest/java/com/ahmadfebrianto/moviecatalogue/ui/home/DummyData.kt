@@ -1,7 +1,5 @@
 package com.ahmadfebrianto.moviecatalogue.ui.home
 
-import com.ahmadfebrianto.moviecatalogue.data.source.remote.response.CatalogResponse
-
 
 object DummyData {
 

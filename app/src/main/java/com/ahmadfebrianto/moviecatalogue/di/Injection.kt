@@ -6,7 +6,6 @@ import com.ahmadfebrianto.moviecatalogue.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.data.source.local.room.CatalogDatabase
 import com.ahmadfebrianto.moviecatalogue.data.source.remote.RemoteDataSource
 import com.ahmadfebrianto.moviecatalogue.utils.AppExecutors
-import com.ahmadfebrianto.moviecatalogue.utils.CatalogHelper
 
 
 object Injection {
@@ -14,7 +13,7 @@ object Injection {
 
         val database = CatalogDatabase.getInstance(context)
 
-        val remoteDataSource = RemoteDataSource.getInstance(CatalogHelper(context))
+        val remoteDataSource = RemoteDataSource()
         val localDataSource = LocalDataSource.getInstance(database.catalogDao())
         val appExecutors = AppExecutors()
 

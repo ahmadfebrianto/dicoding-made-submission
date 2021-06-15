@@ -11,13 +11,13 @@ interface CatalogDataSource {
     /*MOVIES*/
     fun getAllMovies(): LiveData<Resource<PagedList<MovieEntity>>>
     fun getFavoriteMovies(): LiveData<PagedList<MovieEntity>>
-    fun getMovieById(movieId: String): LiveData<Resource<MovieEntity>>
+    fun getMovieById(movieId: String): LiveData<MovieEntity>
     fun setFavoriteMovie(movie: MovieEntity, newState: Boolean)
 
 
     /*TV SHOWS*/
     fun getAllTvShows(): LiveData<Resource<PagedList<TvShowEntity>>>
     fun getFavoriteTvShows(): LiveData<PagedList<TvShowEntity>>
-    fun getTvShowById(tvShowId: String): LiveData<Resource<TvShowEntity>>
+    fun getTvShowById(tvShowId: String): LiveData<TvShowEntity>
     fun setFavoriteTvShow(tvShow: TvShowEntity, newState: Boolean)
 }

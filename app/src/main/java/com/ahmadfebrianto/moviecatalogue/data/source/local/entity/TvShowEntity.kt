@@ -13,8 +13,11 @@ data class TvShowEntity(
     @ColumnInfo(name = "id")
     var id: String = "",
 
-    @ColumnInfo(name = "poster")
-    var poster: String = "",
+    @ColumnInfo(name = "backdropPath")
+    var backdropPath: String = "",
+
+    @ColumnInfo(name = "posterPath")
+    var posterPath: String = "",
 
     @ColumnInfo(name = "title")
     var title: String = "",
@@ -22,11 +25,14 @@ data class TvShowEntity(
     @ColumnInfo(name = "description")
     var description: String = "",
 
+    @ColumnInfo(name = "language")
+    var language: String = "",
+
     @ColumnInfo(name = "rating")
     var rating: String = "",
 
-    @ColumnInfo(name = "releaseYear")
-    var releaseYear: String = "",
+    @ColumnInfo(name = "releaseDate")
+    var releaseDate: String = "",
 
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false

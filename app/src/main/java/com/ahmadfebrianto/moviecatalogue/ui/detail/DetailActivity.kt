@@ -12,7 +12,6 @@ import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.ahmadfebrianto.moviecatalogue.databinding.ActivityDetailBinding
 import com.ahmadfebrianto.moviecatalogue.databinding.ContentActivityDetailBinding
 import com.ahmadfebrianto.moviecatalogue.viewmodel.ViewModelFactory
-import com.ahmadfebrianto.moviecatalogue.vo.Status
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -51,61 +50,27 @@ class DetailActivity : AppCompatActivity() {
                     TYPE_MOVIE -> {
                         viewModel.itemMovie.observe(this, { movie ->
                             if (movie != null) {
-                                when (movie.status) {
-                                    Status.LOADING -> activityDetailBinding.detailProgressBar.visibility =
-                                        View.VISIBLE
-                                    Status.SUCCESS -> {
-                                        if (movie.data != null) {
-                                            activityDetailBinding.detailProgressBar.visibility =
-                                                View.GONE
-                                            activityDetailBinding.content.visibility =
-                                                View.VISIBLE
-                                            activityDetailBinding.fabFavorite.visibility =
-                                                View.VISIBLE
-                                            populateMovieDetail(movie.data, viewModel)
-                                        }
-                                    }
-                                    Status.ERROR -> {
-                                        activityDetailBinding.detailProgressBar.visibility =
-                                            View.GONE
-                                        Toast.makeText(
-                                            applicationContext,
-                                            "Error loading Movie detail.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                }
+                                activityDetailBinding.detailProgressBar.visibility =
+                                    View.GONE
+                                activityDetailBinding.content.visibility =
+                                    View.VISIBLE
+                                activityDetailBinding.fabFavorite.visibility =
+                                    View.VISIBLE
+                                populateMovieDetail(movie, viewModel)
                             }
                         })
                     }
                     TYPE_TV_SHOW -> {
                         viewModel.itemTvShow.observe(this, { tvShow ->
                             if (tvShow != null) {
-                                when (tvShow.status) {
-                                    Status.LOADING -> activityDetailBinding.detailProgressBar.visibility =
-                                        View.VISIBLE
-                                    Status.SUCCESS -> {
-                                        if (tvShow.data != null) {
-                                            activityDetailBinding.detailProgressBar.visibility =
-                                                View.GONE
-                                            activityDetailBinding.content.visibility =
-                                                View.VISIBLE
-                                            populateTvShowDetail(tvShow.data, viewModel)
+                                activityDetailBinding.detailProgressBar.visibility =
+                                    View.GONE
+                                activityDetailBinding.content.visibility =
+                                    View.VISIBLE
+                                populateTvShowDetail(tvShow, viewModel)
 
-                                            activityDetailBinding.fabFavorite.visibility =
-                                                View.VISIBLE
-                                        }
-                                    }
-                                    Status.ERROR -> {
-                                        activityDetailBinding.detailProgressBar.visibility =
-                                            View.GONE
-                                        Toast.makeText(
-                                            applicationContext,
-                                            "Error loading Tv Show detail.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                }
+                                activityDetailBinding.fabFavorite.visibility =
+                                    View.VISIBLE
                             }
                         })
                     }
@@ -122,16 +87,28 @@ class DetailActivity : AppCompatActivity() {
     private fun populateMovieDetail(movie: MovieEntity, viewModel: DetailViewModel) {
         supportActionBar?.title = movie.title
         Glide.with(this)
-            .load(Uri.parse(movie.poster))
+            .load(Uri.parse("https://image.tmdb.org/t/p/w342${movie.posterPath}"))
             .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
+                RequestOptions.placeholderOf(R.drawable.bg_poster)
                     .error(R.drawable.ic_error)
             )
-            .into(contentActivityDetailBinding.ivDtlPoster)
-        contentActivityDetailBinding.tvDtlTitleValue.text = movie.title
-        contentActivityDetailBinding.tvDtlRatingValue.text = movie.rating
-        contentActivityDetailBinding.tvDtlReleaseYearValue.text = movie.releaseYear
-        contentActivityDetailBinding.tvDtlDescriptionValue.text = movie.description
+            .into(contentActivityDetailBinding.ivDetailPoster)
+
+        Glide.with(this)
+            .load(Uri.parse("https://image.tmdb.org/t/p/w780${movie.backdropPath}"))
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.bg_backdrop)
+                    .error(R.drawable.ic_error)
+            )
+            .into(contentActivityDetailBinding.ivDetailBackdrop)
+
+        with(contentActivityDetailBinding) {
+            tvDetailTitle.text = movie.title
+            tvDetailRatingValue.text = movie.rating
+            tvDetailLanguageValue.text = movie.language
+            tvDetailReleaseValue.text = movie.releaseDate
+            tvDetailDescriptionValue.text = movie.description
+        }
 
         if (movie.isFavorite) {
             activityDetailBinding.fabFavorite.setImageResource(R.drawable.ic_fav_filled)
@@ -151,16 +128,28 @@ class DetailActivity : AppCompatActivity() {
     private fun populateTvShowDetail(tvShow: TvShowEntity, viewModel: DetailViewModel) {
         supportActionBar?.title = tvShow.title
         Glide.with(this)
-            .load(Uri.parse(tvShow.poster))
+            .load(Uri.parse("https://image.tmdb.org/t/p/w342${tvShow.posterPath}"))
             .apply(
-                RequestOptions.placeholderOf(R.drawable.ic_loading)
+                RequestOptions.placeholderOf(R.drawable.bg_poster)
                     .error(R.drawable.ic_error)
             )
-            .into(contentActivityDetailBinding.ivDtlPoster)
-        contentActivityDetailBinding.tvDtlTitleValue.text = tvShow.title
-        contentActivityDetailBinding.tvDtlRatingValue.text = tvShow.rating
-        contentActivityDetailBinding.tvDtlReleaseYearValue.text = tvShow.releaseYear
-        contentActivityDetailBinding.tvDtlDescriptionValue.text = tvShow.description
+            .into(contentActivityDetailBinding.ivDetailPoster)
+
+        Glide.with(this)
+            .load(Uri.parse("https://image.tmdb.org/t/p/w780${tvShow.backdropPath}"))
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.bg_backdrop)
+                    .error(R.drawable.ic_error)
+            )
+            .into(contentActivityDetailBinding.ivDetailBackdrop)
+
+        with(contentActivityDetailBinding) {
+            tvDetailTitle.text = tvShow.title
+            tvDetailRatingValue.text = tvShow.rating
+            tvDetailLanguageValue.text = tvShow.language
+            tvDetailReleaseValue.text = tvShow.releaseDate
+            tvDetailDescriptionValue.text = tvShow.description
+        }
 
         if (tvShow.isFavorite) {
             activityDetailBinding.fabFavorite.setImageResource(R.drawable.ic_fav_filled)

@@ -10,13 +10,13 @@
     <string name="title_value">Movie Title</string>
 
     <string name="rating">Rating</string>
-    <string name="rating_value">Movie Rating</string>
+    <string name="rating_value">0.0</string>
 
-    <string name="release_year">Release Year</string>
-    <string name="release_year_value">Movie Release Year</string>
+    <string name="release_year">Release</string>
+    <string name="release_year_value">00-00-0000</string>
 
     <string name="description">Description</string>
-    <string name="description_value">Movie Description</string>
+    <string name="description_value">This is the description</string>
 
 
     <!--MAIN AND FAVORITE PAGE-->
@@ -35,5 +35,7 @@
     <string name="favorite_catalog">Favorite Catalog</string>
 
     <string name="data_empty">No data at the moment</string>
+    <string name="language">Language</string>
+    <string name="language_value">En</string>
 
 </resources>

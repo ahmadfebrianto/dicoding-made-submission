@@ -1,7 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.ui.home.movies
 
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
@@ -33,7 +32,7 @@ class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>
         fun bind(movie: MovieEntity) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load(Uri.parse(movie.poster))
+                    .load("https://image.tmdb.org/t/p/w185${movie.posterPath}")
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
@@ -43,8 +42,8 @@ class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>
                 tvTitle.text = movie.title
                 tvRating.text =
                     itemView.resources.getString(R.string.rating_placeholder, movie.rating)
-                tvReleaseYear.text =
-                    itemView.resources.getString(R.string.release_placeholder, movie.releaseYear)
+                tvReleaseDate.text =
+                    itemView.resources.getString(R.string.release_placeholder, movie.releaseDate)
 
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, DetailActivity::class.java)

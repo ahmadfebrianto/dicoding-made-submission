@@ -5,108 +5,162 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipToPadding="false"
-    android:descendantFocusability="blocksDescendants"
-    android:padding="10dp">
+    android:descendantFocusability="blocksDescendants">
 
     <ImageView
-        android:id="@+id/iv_dtl_poster"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_description"
+        android:id="@+id/iv_detail_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/iv_detail_poster"
+        android:layout_width="154dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="88dp"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_detail_backdrop" />
+
     <TextView
-        android:id="@+id/tv_dtl_title"
+        android:id="@+id/tv_detail_title"
+        style="@style/Theme.MovieCatalogue.BigBold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/title"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_title_value"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toTopOf="@+id/iv_dtl_poster" />
+        app:layout_constraintStart_toEndOf="@+id/iv_detail_poster"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_backdrop" />
+
 
     <TextView
-        android:id="@+id/tv_dtl_title_value"
-        style="@style/Theme.MovieCatalogue.BigBold"
+        android:id="@+id/tv_detail_rating_value"
+        style="@style/Theme.MovieCatalogue.DetailVariables"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/title_value"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_rating"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_title" />
-
-    <TextView
-        android:id="@+id/tv_dtl_rating"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/rating"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_rating_value"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_title_value" />
-
-    <TextView
-        android:id="@+id/tv_dtl_rating_value"
-        style="@style/Theme.MovieCatalogue.BigBold"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:text="@string/rating_value"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_release_year"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_rating" />
+        app:layout_constraintEnd_toStartOf="@+id/v_separator2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_poster" />
 
     <TextView
-        android:id="@+id/tv_dtl_release_year"
+        android:id="@+id/tv_detail_rating"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/release_year"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_release_year_value"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_rating_value" />
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/rating"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_rating_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_rating_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_rating_value" />
+
+    <View
+        android:id="@+id/v_separator2"
+        android:layout_width="0.5dp"
+        android:layout_height="40dp"
+        android:background="@color/gray2"
+        app:layout_constraintBottom_toTopOf="@+id/v_separator1"
+        app:layout_constraintEnd_toStartOf="@id/tv_detail_language_value"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_rating_value"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_poster" />
 
     <TextView
-        android:id="@+id/tv_dtl_release_year_value"
-        style="@style/Theme.MovieCatalogue.BigBold"
+        android:id="@+id/tv_detail_language_value"
+        style="@style/Theme.MovieCatalogue.DetailVariables"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:text="@string/language_value"
+        app:layout_constraintEnd_toStartOf="@id/v_separator3"
+        app:layout_constraintStart_toEndOf="@+id/v_separator2"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_poster" />
+
+    <TextView
+        android:id="@+id/tv_detail_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/language"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_language_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_language_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_language_value" />
+
+    <View
+        android:id="@+id/v_separator3"
+        android:layout_width="0.5dp"
+        android:layout_height="40dp"
+        android:background="@color/gray2"
+        app:layout_constraintBottom_toTopOf="@+id/v_separator1"
+        app:layout_constraintEnd_toStartOf="@id/tv_detail_release_value"
+        app:layout_constraintStart_toEndOf="@id/tv_detail_language_value"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_poster" />
+
+    <TextView
+        android:id="@+id/tv_detail_release_value"
+        style="@style/Theme.MovieCatalogue.DetailVariables"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="@string/release_year_value"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_dtl_poster"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_dtl_poster"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_release_year" />
+        app:layout_constraintStart_toEndOf="@+id/v_separator3"
+        app:layout_constraintTop_toBottomOf="@+id/iv_detail_poster" />
 
     <TextView
-        android:id="@+id/tv_dtl_description"
-        style="@style/Theme.MovieCatalogue.BigBold"
+        android:id="@+id/tv_detail_release"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/description"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dtl_description_value"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/release_year"
+        app:layout_constraintEnd_toEndOf="@+id/tv_detail_release_value"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_release_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_release_value" />
+
+    <View
+        android:id="@+id/v_separator1"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/gray2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_dtl_poster" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_language" />
 
     <TextView
-        android:id="@+id/tv_dtl_description_value"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_detail_description"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_separator1" />
+
+    <TextView
+        android:id="@+id/tv_detail_description_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:padding="10dp"
         android:text="@string/description_value"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/primary_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dtl_description" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

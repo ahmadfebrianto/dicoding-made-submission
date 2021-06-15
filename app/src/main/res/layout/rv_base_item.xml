@@ -6,10 +6,10 @@
     android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/iv_poster"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="92dp"
+        android:layout_height="138dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,32 +18,35 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/Theme.MovieCatalogue.BigBold"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:text="@string/title_value"
         app:layout_constraintBottom_toTopOf="@+id/tv_rating"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toTopOf="@+id/iv_poster" />
 
     <TextView
         android:id="@+id/tv_rating"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:text="@string/rating_value"
 
-        app:layout_constraintBottom_toTopOf="@+id/tv_release_year"
+        app:layout_constraintBottom_toTopOf="@+id/tv_release_date"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <TextView
-        android:id="@+id/tv_release_year"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_release_date"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:text="@string/release_year_value"
         app:layout_constraintBottom_toBottomOf="@+id/iv_poster"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_rating" />
 

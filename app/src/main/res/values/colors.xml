@@ -8,4 +8,5 @@
     <color name="secondary_text">#757575</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#e6e6e6</color>
+    <color name="gray2">#808080</color>
 </resources>

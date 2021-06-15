@@ -1,7 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.ui.home.tvshows
 
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
@@ -35,7 +34,7 @@ class TvShowAdapter :
         fun bind(tvShow: TvShowEntity) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load(Uri.parse(tvShow.poster))
+                    .load("https://image.tmdb.org/t/p/w185${tvShow.posterPath}")
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
@@ -45,8 +44,8 @@ class TvShowAdapter :
                 tvTitle.text = tvShow.title
                 tvRating.text =
                     itemView.resources.getString(R.string.rating_placeholder, tvShow.rating)
-                tvReleaseYear.text =
-                    itemView.resources.getString(R.string.release_placeholder, tvShow.releaseYear)
+                tvReleaseDate.text =
+                    itemView.resources.getString(R.string.release_placeholder, tvShow.releaseDate)
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)

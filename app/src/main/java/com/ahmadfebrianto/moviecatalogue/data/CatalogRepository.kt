@@ -8,7 +8,8 @@ import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.ahmadfebrianto.moviecatalogue.data.source.remote.ApiResponse
 import com.ahmadfebrianto.moviecatalogue.data.source.remote.RemoteDataSource
-import com.ahmadfebrianto.moviecatalogue.data.source.remote.response.CatalogResponse
+import com.ahmadfebrianto.moviecatalogue.data.source.remote.response.MovieResponse
+import com.ahmadfebrianto.moviecatalogue.data.source.remote.response.TvShowResponse
 import com.ahmadfebrianto.moviecatalogue.utils.AppExecutors
 import com.ahmadfebrianto.moviecatalogue.vo.Resource
 
@@ -41,7 +42,7 @@ class CatalogRepository private constructor(
 
     override fun getAllMovies(): LiveData<Resource<PagedList<MovieEntity>>> {
         return object :
-            NetworkBoundResource<PagedList<MovieEntity>, List<CatalogResponse>>(appExecutors) {
+            NetworkBoundResource<PagedList<MovieEntity>, List<MovieResponse>>(appExecutors) {
             override fun loadFromDB(): LiveData<PagedList<MovieEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -55,20 +56,22 @@ class CatalogRepository private constructor(
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<CatalogResponse>>> {
+            override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> {
                 return remoteDataSource.getAllMovies()
             }
 
-            override fun saveCallResult(data: List<CatalogResponse>) {
+            override fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = ArrayList<MovieEntity>()
                 for (response in data) {
                     val movie = MovieEntity(
                         response.id,
-                        response.poster,
+                        response.backdropPath,
+                        response.posterPath,
                         response.title,
                         response.description,
+                        response.language,
                         response.rating,
-                        response.releaseYear
+                        response.releaseDate
                     )
                     movieList.add(movie)
                 }
@@ -86,32 +89,8 @@ class CatalogRepository private constructor(
         return LivePagedListBuilder(localDataSource.getFavoriteMovies(), config).build()
     }
 
-    override fun getMovieById(movieId: String): LiveData<Resource<MovieEntity>> {
-        return object : NetworkBoundResource<MovieEntity, CatalogResponse>(appExecutors) {
-            override fun loadFromDB(): LiveData<MovieEntity> {
-                return localDataSource.getMovieById(movieId)
-            }
-
-            override fun shouldFetch(data: MovieEntity?): Boolean {
-                return data == null
-            }
-
-            override fun createCall(): LiveData<ApiResponse<CatalogResponse>> {
-                return remoteDataSource.getMovieById(movieId)
-            }
-
-            override fun saveCallResult(data: CatalogResponse) {
-                val movie = MovieEntity(
-                    data.id,
-                    data.poster,
-                    data.title,
-                    data.description,
-                    data.rating,
-                    data.releaseYear
-                )
-                localDataSource.insertMovie(movie)
-            }
-        }.asLiveData()
+    override fun getMovieById(movieId: String): LiveData<MovieEntity> {
+        return localDataSource.getMovieById(movieId)
     }
 
     override fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
@@ -124,7 +103,7 @@ class CatalogRepository private constructor(
 
     override fun getAllTvShows(): LiveData<Resource<PagedList<TvShowEntity>>> {
         return object :
-            NetworkBoundResource<PagedList<TvShowEntity>, List<CatalogResponse>>(appExecutors) {
+            NetworkBoundResource<PagedList<TvShowEntity>, List<TvShowResponse>>(appExecutors) {
             override fun loadFromDB(): LiveData<PagedList<TvShowEntity>> {
                 val config = PagedList.Config.Builder()
                     .setEnablePlaceholders(false)
@@ -138,20 +117,22 @@ class CatalogRepository private constructor(
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<CatalogResponse>>> {
+            override fun createCall(): LiveData<ApiResponse<List<TvShowResponse>>> {
                 return remoteDataSource.getAllTvShows()
             }
 
-            override fun saveCallResult(data: List<CatalogResponse>) {
+            override fun saveCallResult(data: List<TvShowResponse>) {
                 val tvShowList = ArrayList<TvShowEntity>()
                 for (response in data) {
                     val tvShow = TvShowEntity(
                         response.id,
-                        response.poster,
+                        response.backdropPath,
+                        response.posterPath,
                         response.title,
                         response.description,
+                        response.language,
                         response.rating,
-                        response.releaseYear
+                        response.releaseDate
                     )
                     tvShowList.add(tvShow)
                 }
@@ -169,32 +150,8 @@ class CatalogRepository private constructor(
         return LivePagedListBuilder(localDataSource.getFavoriteTvShows(), config).build()
     }
 
-    override fun getTvShowById(tvShowId: String): LiveData<Resource<TvShowEntity>> {
-        return object : NetworkBoundResource<TvShowEntity, CatalogResponse>(appExecutors) {
-            override fun loadFromDB(): LiveData<TvShowEntity> {
-                return localDataSource.getTvShowById(tvShowId)
-            }
-
-            override fun shouldFetch(data: TvShowEntity?): Boolean {
-                return data == null
-            }
-
-            override fun createCall(): LiveData<ApiResponse<CatalogResponse>> {
-                return remoteDataSource.getTvShowById(tvShowId)
-            }
-
-            override fun saveCallResult(data: CatalogResponse) {
-                val tvShow = TvShowEntity(
-                    data.id,
-                    data.poster,
-                    data.title,
-                    data.description,
-                    data.rating,
-                    data.releaseYear
-                )
-                localDataSource.insertTvShow(tvShow)
-            }
-        }.asLiveData()
+    override fun getTvShowById(tvShowId: String): LiveData<TvShowEntity> {
+        return localDataSource.getTvShowById(tvShowId)
     }
 
     override fun setFavoriteTvShow(tvShow: TvShowEntity, newState: Boolean) {
