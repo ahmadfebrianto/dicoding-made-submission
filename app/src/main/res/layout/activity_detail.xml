@@ -28,8 +28,8 @@
         android:id="@+id/fab_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:layout_margin="20dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
         android:clickable="true"
         android:elevation="10dp"
         android:focusable="true"
@@ -37,6 +37,7 @@
         android:visibility="invisible"
         app:backgroundTint="@color/white"
         app:srcCompat="@drawable/ic_fav_unfilled"
-        app:tint="@color/primary" />
+        app:tint="@color/primary"
+        app:maxImageSize="30dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

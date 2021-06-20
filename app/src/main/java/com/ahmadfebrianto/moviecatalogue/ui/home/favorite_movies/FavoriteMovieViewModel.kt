@@ -1,4 +1,4 @@
-package com.ahmadfebrianto.moviecatalogue.ui.favorite.movies
+package com.ahmadfebrianto.moviecatalogue.ui.home.favorite_movies
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

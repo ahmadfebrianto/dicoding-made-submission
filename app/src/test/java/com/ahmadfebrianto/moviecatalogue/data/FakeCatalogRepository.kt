@@ -5,7 +5,6 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.ahmadfebrianto.moviecatalogue.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.MovieEntity
-import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.ahmadfebrianto.moviecatalogue.data.source.remote.ApiResponse
 import com.ahmadfebrianto.moviecatalogue.data.source.remote.RemoteDataSource
 import com.ahmadfebrianto.moviecatalogue.utils.AppExecutors

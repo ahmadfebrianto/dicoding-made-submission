@@ -48,7 +48,6 @@ class MovieAdapter : PagedListAdapter<MovieEntity, MovieAdapter.MovieViewHolder>
                 itemView.setOnClickListener {
                     val intent = Intent(it.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_ID, movie.id)
-                    intent.putExtra(DetailActivity.EXTRA_TYPE, DetailActivity.TYPE_MOVIE)
                     itemView.context.startActivity(intent)
                 }
             }

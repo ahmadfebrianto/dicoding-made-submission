@@ -3,7 +3,6 @@ package com.ahmadfebrianto.moviecatalogue.data.source.local
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.MovieEntity
-import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.ahmadfebrianto.moviecatalogue.data.source.local.room.CatalogDao
 
 class LocalDataSource private constructor(private val catalogDao: CatalogDao) {
@@ -44,34 +43,4 @@ class LocalDataSource private constructor(private val catalogDao: CatalogDao) {
     fun insertMovie(movie: MovieEntity) {
         catalogDao.insertMovie(movie)
     }
-
-
-    /*TV SHOWS*/
-
-    fun getAllTvShows(): DataSource.Factory<Int, TvShowEntity> {
-        return catalogDao.getAllTvShows()
-    }
-
-    fun getFavoriteTvShows(): DataSource.Factory<Int, TvShowEntity> {
-        return catalogDao.getFavoriteTvShows()
-    }
-
-    fun getTvShowById(tvShowId: String): LiveData<TvShowEntity> {
-        return catalogDao.getTvShowById(tvShowId)
-    }
-
-    fun setFavoriteTvShow(tvShow: TvShowEntity, newState: Boolean) {
-        tvShow.isFavorite = newState
-        catalogDao.updateTvShow(tvShow)
-    }
-
-    fun insertTvShows(tvShows: List<TvShowEntity>) {
-        catalogDao.insertTvShows(tvShows)
-    }
-
-    fun insertTvShow(tvShow: TvShowEntity) {
-        catalogDao.insertTvShow(tvShow)
-    }
-
-
 }

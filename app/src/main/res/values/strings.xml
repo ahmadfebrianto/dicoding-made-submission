@@ -21,7 +21,7 @@
 
     <!--MAIN AND FAVORITE PAGE-->
     <string name="movies">Movies</string>
-    <string name="tv_shows">Tv Shows</string>
+    <string name="favorite">Favorite</string>
 
     <string name="title_activity_favorite">FavoriteActivity</string>
     <string name="tab_text_1">Tab 1</string>

@@ -1,4 +1,4 @@
-package com.ahmadfebrianto.moviecatalogue.ui.favorite.movies
+package com.ahmadfebrianto.moviecatalogue.ui.home.favorite_movies
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -41,6 +41,8 @@ class FavoriteMovieFragment : Fragment() {
                 favoriteMovieAdapter.submitList(movies)
                 if (movies.isNullOrEmpty()) {
                     favoriteMovieBinding.tvMoviesEmpty.visibility = View.VISIBLE
+                } else {
+                    favoriteMovieBinding.tvMoviesEmpty.visibility = View.INVISIBLE
                 }
             })
 

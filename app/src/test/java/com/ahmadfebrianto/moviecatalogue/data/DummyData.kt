@@ -1,7 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.data
 
 import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.MovieEntity
-import com.ahmadfebrianto.moviecatalogue.data.source.local.entity.TvShowEntity
 
 
 object DummyData {

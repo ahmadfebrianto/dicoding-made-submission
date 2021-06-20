@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.ahmadfebrianto.moviecatalogue.R
+import com.ahmadfebrianto.moviecatalogue.ui.home.favorite_movies.FavoriteMovieFragment
 import com.ahmadfebrianto.moviecatalogue.ui.home.movies.MovieFragment
-import com.ahmadfebrianto.moviecatalogue.ui.home.tvshows.TvShowFragment
 
 
 class HomeSectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
@@ -15,13 +15,13 @@ class HomeSectionsPagerAdapter(private val context: Context, fm: FragmentManager
 
     companion object {
         @StringRes
-        private val TAB_TITLES = intArrayOf(R.string.movies, R.string.tv_shows)
+        private val TAB_TITLES = intArrayOf(R.string.movies, R.string.favorite)
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> MovieFragment()
-            1 -> TvShowFragment()
+            1 -> FavoriteMovieFragment()
             else -> Fragment()
         }
     }
