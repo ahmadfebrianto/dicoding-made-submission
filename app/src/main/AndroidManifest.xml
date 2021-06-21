@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
         <activity
-            android:name=".ui.favorite.FavoriteActivity"
+            android:name="com.ahmadfebrianto.moviecatalogue.core.ui.favorite.FavoriteActivity"
             android:label="@string/title_activity_favorite" />
-        <activity android:name=".ui.detail.DetailActivity" />
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name="com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity" />
+        <activity android:name="com.ahmadfebrianto.moviecatalogue.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

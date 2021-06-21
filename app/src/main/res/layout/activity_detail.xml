@@ -36,8 +36,8 @@
         android:importantForAccessibility="no"
         android:visibility="invisible"
         app:backgroundTint="@color/white"
+        app:maxImageSize="30dp"
         app:srcCompat="@drawable/ic_fav_unfilled"
-        app:tint="@color/primary"
-        app:maxImageSize="30dp"/>
+        app:tint="@color/primary" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
