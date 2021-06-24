@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
 import com.ahmadfebrianto.moviecatalogue.core.ui.ViewModelFactory
-import com.ahmadfebrianto.moviecatalogue.core.vo.Status
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.databinding.FragmentMoviesBinding
 
 class MovieFragment : Fragment() {
@@ -41,15 +41,15 @@ class MovieFragment : Fragment() {
 
             viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
                 if (movies != null) {
-                    when (movies.status) {
-                        Status.LOADING -> {
+                    when (movies) {
+                        is Resource.Loading -> {
                             fragmentMovieBinding.rvProgressBar.visibility = View.VISIBLE
                         }
-                        Status.SUCCESS -> {
+                        is Resource.Success -> {
                             fragmentMovieBinding.rvProgressBar.visibility = View.GONE
                             movieAdapter.setData(movies.data!!)
                         }
-                        Status.ERROR -> {
+                        is Resource.Error -> {
                             fragmentMovieBinding.rvProgressBar.visibility = View.GONE
                             Toast.makeText(context, "Error loading movie list", Toast.LENGTH_SHORT)
                                 .show()

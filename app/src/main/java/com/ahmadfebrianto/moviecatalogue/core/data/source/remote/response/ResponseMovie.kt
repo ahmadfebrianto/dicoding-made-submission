@@ -30,7 +30,7 @@ data class MovieResponse(
 
 )
 
-data class MovieList(
+data class MovieResponseList(
     @SerializedName("results")
     val movieList: List<MovieResponse>
 )

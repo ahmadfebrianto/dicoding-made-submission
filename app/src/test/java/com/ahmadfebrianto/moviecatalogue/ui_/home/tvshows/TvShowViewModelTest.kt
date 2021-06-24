@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.paging.PositionalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository
-import com.ahmadfebrianto.moviecatalogue.core.vo.Resource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.data_.DummyData
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

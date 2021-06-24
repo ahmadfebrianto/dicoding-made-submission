@@ -1,11 +1,11 @@
 package com.ahmadfebrianto.moviecatalogue.core.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
-import com.ahmadfebrianto.moviecatalogue.core.vo.Resource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
+import io.reactivex.Flowable
 
 interface DomainRepository {
-    fun getAllMovies(): LiveData<Resource<List<Movie>>>
-    fun getFavoriteMovies(): LiveData<List<Movie>>
+    fun getAllMovies(): Flowable<Resource<List<Movie>>>
+    fun getFavoriteMovies(): Flowable<List<Movie>>
     fun setFavoriteMovie(movie: Movie, state: Boolean)
 }

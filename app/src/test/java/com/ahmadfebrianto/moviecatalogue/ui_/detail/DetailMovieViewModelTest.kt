@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
-import com.ahmadfebrianto.moviecatalogue.core.vo.Resource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.data_.DummyData
 import com.ahmadfebrianto.moviecatalogue.detail.DetailMovieViewModel
 import org.junit.Assert.assertEquals

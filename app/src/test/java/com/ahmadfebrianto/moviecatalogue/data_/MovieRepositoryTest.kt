@@ -7,7 +7,7 @@ import com.ahmadfebrianto.moviecatalogue.core.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.RemoteDataSource
 import com.ahmadfebrianto.moviecatalogue.core.utils.AppExecutors
-import com.ahmadfebrianto.moviecatalogue.core.vo.Resource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.utils_.LiveDataTestUtil
 import com.ahmadfebrianto.moviecatalogue.utils_.PagedListUtil
 import com.nhaarman.mockitokotlin2.verify

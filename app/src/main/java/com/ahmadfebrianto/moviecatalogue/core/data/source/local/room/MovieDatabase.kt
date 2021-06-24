@@ -14,11 +14,10 @@ import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEnti
 )
 abstract class MovieDatabase : RoomDatabase() {
 
-    abstract fun catalogDao(): MovieDao
+    abstract fun movieDao(): MovieDao
 
     companion object {
         const val MOVIE_TABLE_NAME = "movies"
-        const val TV_SHOW_TABLE_NAME = "tvshows"
         private const val DB_NAME = "movie_catalog.db"
 
         @Volatile
@@ -30,9 +29,10 @@ abstract class MovieDatabase : RoomDatabase() {
                     context.applicationContext,
                     MovieDatabase::class.java,
                     DB_NAME
-                ).build().apply {
-                    INSTANCE = this
-                }
+                ).fallbackToDestructiveMigration()
+                    .build().apply {
+                        INSTANCE = this
+                    }
             }
         }
     }

@@ -1,16 +1,16 @@
 package com.ahmadfebrianto.moviecatalogue.core.domain.usecase
 
-import androidx.lifecycle.LiveData
 import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
 import com.ahmadfebrianto.moviecatalogue.core.domain.repository.DomainRepository
-import com.ahmadfebrianto.moviecatalogue.core.vo.Resource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
+import io.reactivex.Flowable
 
 class MovieInteractor(private val domainRepository: DomainRepository) : MovieUseCase {
-    override fun getAllMovies(): LiveData<Resource<List<Movie>>> {
+    override fun getAllMovies(): Flowable<Resource<List<Movie>>> {
         return domainRepository.getAllMovies()
     }
 
-    override fun getFavoriteMovies(): LiveData<List<Movie>> {
+    override fun getFavoriteMovies(): Flowable<List<Movie>> {
         return domainRepository.getFavoriteMovies()
     }
 

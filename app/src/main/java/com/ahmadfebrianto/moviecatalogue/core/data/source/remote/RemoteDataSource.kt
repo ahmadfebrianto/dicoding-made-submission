@@ -1,40 +1,48 @@
 package com.ahmadfebrianto.moviecatalogue.core.data.source.remote
 
+import android.annotation.SuppressLint
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.response.MovieList
+import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api.ApiResponse
+import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api.ApiService
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.response.MovieResponse
-import com.ahmadfebrianto.moviecatalogue.core.utils.EspressoIdlingResource
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.BackpressureStrategy
+import io.reactivex.Flowable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
 
-class RemoteDataSource {
+class RemoteDataSource private constructor(private val apiService: ApiService) {
 
-    /*MOVIES*/
-
-    fun getAllMovies(): LiveData<ApiResponse<List<MovieResponse>>> {
-        EspressoIdlingResource.increment()
-
-        val client = ApiConfig.getApiService().getMovieList()
-        val resultMovies = MutableLiveData<ApiResponse<List<MovieResponse>>>()
-
-        client.enqueue(object : Callback<MovieList> {
-            override fun onResponse(call: Call<MovieList>, response: Response<MovieList>) {
-                resultMovies.value = ApiResponse.success(response.body()!!.movieList)
-                if (!EspressoIdlingResource.idlingResource.isIdleNow) {
-                    EspressoIdlingResource.decrement()
-                }
+    companion object {
+        @Volatile
+        private var instance: RemoteDataSource? = null
+        fun getInstance(service: ApiService): RemoteDataSource {
+            return instance ?: synchronized(this) {
+                instance ?: RemoteDataSource(service)
             }
+        }
+    }
 
-            override fun onFailure(call: Call<MovieList>, t: Throwable) {
-                Log.d("MOVIE RESPONSE", t.message.toString())
-                if (!EspressoIdlingResource.idlingResource.isIdleNow) {
-                    EspressoIdlingResource.decrement()
-                }
-            }
-        })
-        return resultMovies
+    @SuppressLint("CheckResult")
+    fun getAllMovies(): Flowable<ApiResponse<List<MovieResponse>>> {
+        val resultMovies = PublishSubject.create<ApiResponse<List<MovieResponse>>>()
+        val client = apiService.getMovieList()
+
+        client
+            .subscribeOn(Schedulers.computation())
+            .observeOn(AndroidSchedulers.mainThread())
+            .take(1)
+            .subscribe({ response ->
+                val movieList = response.movieList
+                resultMovies.onNext(
+                    if (movieList.isNotEmpty()) ApiResponse.Success(movieList)
+                    else ApiResponse.Empty
+                )
+            }, { error ->
+                resultMovies.onNext(ApiResponse.Error(error.message.toString()))
+                Log.e("RemoteDataSource", error.toString())
+            })
+
+        return resultMovies.toFlowable(BackpressureStrategy.BUFFER)
     }
 }
