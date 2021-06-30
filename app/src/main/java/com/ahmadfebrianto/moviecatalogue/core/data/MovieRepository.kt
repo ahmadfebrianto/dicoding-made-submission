@@ -1,5 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.core.data
 
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.RemoteDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api.ApiResponse
@@ -8,10 +9,8 @@ import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
 import com.ahmadfebrianto.moviecatalogue.core.domain.repository.DomainRepository
 import com.ahmadfebrianto.moviecatalogue.core.utils.AppExecutors
 import com.ahmadfebrianto.moviecatalogue.core.utils.DataMapper
-import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
-import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class MovieRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -28,14 +27,14 @@ class MovieRepository private constructor(
             appExecutors: AppExecutors
         ): MovieRepository {
             return instance ?: synchronized(this) {
-                instance?: MovieRepository(remoteData, localData, appExecutors)
+                instance ?: MovieRepository(remoteData, localData, appExecutors)
             }
         }
     }
 
-    override fun getAllMovies(): Flowable<Resource<List<Movie>>> {
+    override fun getAllMovies(): Flow<Resource<List<Movie>>> {
         return object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
-            override fun loadFromDB(): Flowable<List<Movie>> {
+            override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovies().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
@@ -45,21 +44,18 @@ class MovieRepository private constructor(
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): Flowable<ApiResponse<List<MovieResponse>>> {
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> {
                 return remoteDataSource.getAllMovies()
             }
 
-            override fun saveCallResult(data: List<MovieResponse>) {
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertMovies(movieList)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe()
             }
-        }.asFlowable()
+        }.asFlow()
     }
 
-    override fun getFavoriteMovies(): Flowable<List<Movie>> {
+    override fun getFavoriteMovies(): Flow<List<Movie>> {
         return localDataSource.getFavoriteMovies().map {
             DataMapper.mapEntitiesToDomain(it)
         }

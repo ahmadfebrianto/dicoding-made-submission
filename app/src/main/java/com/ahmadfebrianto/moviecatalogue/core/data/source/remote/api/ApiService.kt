@@ -2,7 +2,6 @@ package com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api
 
 import com.ahmadfebrianto.moviecatalogue.BuildConfig
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.response.MovieResponseList
-import io.reactivex.Flowable
 import retrofit2.http.GET
 
 interface ApiService {
@@ -13,6 +12,6 @@ interface ApiService {
     }
 
     @GET("${MOVIE_LIST_ID}?page=1&api_key=${API_KEY}")
-    fun getMovieList(): Flowable<MovieResponseList>
+    suspend fun getMovieList(): MovieResponseList
 
 }

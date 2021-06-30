@@ -2,8 +2,7 @@ package com.ahmadfebrianto.moviecatalogue.core.data.source.local
 
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.room.MovieDao
-import io.reactivex.Completable
-import io.reactivex.Flowable
+import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource private constructor(private val movieDao: MovieDao) {
 
@@ -11,18 +10,18 @@ class LocalDataSource private constructor(private val movieDao: MovieDao) {
         private var INSTANCE: LocalDataSource? = null
 
         fun getInstance(dao: MovieDao): LocalDataSource {
-            return INSTANCE?: synchronized(this) {
-                INSTANCE?: LocalDataSource(dao)
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: LocalDataSource(dao)
             }
         }
     }
 
 
-    fun getAllMovies(): Flowable<List<MovieEntity>> {
+    fun getAllMovies(): Flow<List<MovieEntity>> {
         return movieDao.getAllMovies()
     }
 
-    fun getFavoriteMovies(): Flowable<List<MovieEntity>> {
+    fun getFavoriteMovies(): Flow<List<MovieEntity>> {
         return movieDao.getFavoriteMovies()
     }
 
@@ -31,7 +30,7 @@ class LocalDataSource private constructor(private val movieDao: MovieDao) {
         movieDao.updateMovie(movie)
     }
 
-    fun insertMovies(movies: List<MovieEntity>): Completable {
-        return movieDao.insertMovies(movies)
+    suspend fun insertMovies(movies: List<MovieEntity>) {
+        movieDao.insertMovies(movies)
     }
 }

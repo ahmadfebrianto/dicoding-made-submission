@@ -3,11 +3,11 @@ package com.ahmadfebrianto.moviecatalogue.data_
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.RemoteDataSource
 import com.ahmadfebrianto.moviecatalogue.core.utils.AppExecutors
-import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.utils_.LiveDataTestUtil
 import com.ahmadfebrianto.moviecatalogue.utils_.PagedListUtil
 import com.nhaarman.mockitokotlin2.verify

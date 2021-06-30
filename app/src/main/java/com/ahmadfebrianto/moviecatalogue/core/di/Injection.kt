@@ -13,7 +13,7 @@ import com.ahmadfebrianto.moviecatalogue.core.utils.AppExecutors
 
 
 object Injection {
-    fun provideRepository(context: Context): DomainRepository {
+    private fun provideRepository(context: Context): DomainRepository {
 
         val database = MovieDatabase.getInstance(context)
 

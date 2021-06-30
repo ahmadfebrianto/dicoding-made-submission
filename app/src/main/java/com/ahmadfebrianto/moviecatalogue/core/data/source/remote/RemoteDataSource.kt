@@ -5,11 +5,10 @@ import android.util.Log
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api.ApiResponse
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.api.ApiService
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.response.MovieResponse
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.PublishSubject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource private constructor(private val apiService: ApiService) {
 
@@ -24,25 +23,20 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
     }
 
     @SuppressLint("CheckResult")
-    fun getAllMovies(): Flowable<ApiResponse<List<MovieResponse>>> {
-        val resultMovies = PublishSubject.create<ApiResponse<List<MovieResponse>>>()
-        val client = apiService.getMovieList()
-
-        client
-            .subscribeOn(Schedulers.computation())
-            .observeOn(AndroidSchedulers.mainThread())
-            .take(1)
-            .subscribe({ response ->
-                val movieList = response.movieList
-                resultMovies.onNext(
-                    if (movieList.isNotEmpty()) ApiResponse.Success(movieList)
-                    else ApiResponse.Empty
-                )
-            }, { error ->
-                resultMovies.onNext(ApiResponse.Error(error.message.toString()))
-                Log.e("RemoteDataSource", error.toString())
-            })
-
-        return resultMovies.toFlowable(BackpressureStrategy.BUFFER)
+    suspend fun getAllMovies(): Flow<ApiResponse<List<MovieResponse>>> {
+        return flow {
+            try {
+                val response = apiService.getMovieList()
+                val dataArray = response.movieList
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(response.movieList))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
     }
 }

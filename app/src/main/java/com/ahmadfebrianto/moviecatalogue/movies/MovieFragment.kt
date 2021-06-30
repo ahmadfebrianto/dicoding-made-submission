@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
 import com.ahmadfebrianto.moviecatalogue.core.ui.ViewModelFactory
-import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.databinding.FragmentMoviesBinding
 
 class MovieFragment : Fragment() {

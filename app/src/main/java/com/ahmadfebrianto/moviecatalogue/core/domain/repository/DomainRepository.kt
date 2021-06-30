@@ -1,11 +1,11 @@
 package com.ahmadfebrianto.moviecatalogue.core.domain.repository
 
-import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
 import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
-import io.reactivex.Flowable
+import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
+import kotlinx.coroutines.flow.Flow
 
 interface DomainRepository {
-    fun getAllMovies(): Flowable<Resource<List<Movie>>>
-    fun getFavoriteMovies(): Flowable<List<Movie>>
+    fun getAllMovies(): Flow<Resource<List<Movie>>>
+    fun getFavoriteMovies(): Flow<List<Movie>>
     fun setFavoriteMovie(movie: Movie, state: Boolean)
 }
