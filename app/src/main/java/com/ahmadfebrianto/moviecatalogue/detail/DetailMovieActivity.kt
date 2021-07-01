@@ -5,14 +5,13 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.ahmadfebrianto.moviecatalogue.R
 import com.ahmadfebrianto.moviecatalogue.core.domain.model.Movie
-import com.ahmadfebrianto.moviecatalogue.core.ui.ViewModelFactory
 import com.ahmadfebrianto.moviecatalogue.databinding.ActivityDetailBinding
 import com.ahmadfebrianto.moviecatalogue.databinding.ContentActivityDetailBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailMovieActivity : AppCompatActivity() {
 
@@ -24,7 +23,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
     private lateinit var activityDetailBinding: ActivityDetailBinding
     private lateinit var contentActivityDetailBinding: ContentActivityDetailBinding
-    private lateinit var viewModel: DetailMovieViewModel
+    private val detailViewModel: DetailMovieViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +33,6 @@ class DetailMovieActivity : AppCompatActivity() {
         activityDetailBinding = ActivityDetailBinding.inflate(layoutInflater)
         contentActivityDetailBinding = activityDetailBinding.detailContent
         setContentView(activityDetailBinding.root)
-
-        val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
         val movieItem = intent.getParcelableExtra<Movie>(EXTRA_MOVIE)
         if (movieItem != null) {
@@ -61,7 +57,7 @@ class DetailMovieActivity : AppCompatActivity() {
             setFavoriteIcon(isFavorite)
             fabFavorite.setOnClickListener {
                 isFavorite = !isFavorite
-                viewModel.setFavoriteMovie(movie, isFavorite)
+                detailViewModel.setFavoriteMovie(movie, isFavorite)
                 showMessage(isFavorite)
                 setFavoriteIcon(isFavorite)
             }

@@ -6,19 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
-import com.ahmadfebrianto.moviecatalogue.core.ui.ViewModelFactory
 import com.ahmadfebrianto.moviecatalogue.databinding.FragmentMoviesBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieFragment : Fragment() {
 
+    private val movieViewModel: MovieViewModel by viewModel()
     private lateinit var fragmentMovieBinding: FragmentMoviesBinding
-    private lateinit var viewModel: MovieViewModel
-    private lateinit var viewModelFactory: ViewModelFactory
     private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(
@@ -32,14 +30,9 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (activity != null) {
-            viewModelFactory = ViewModelFactory.getInstance(requireActivity())
-            viewModel = ViewModelProvider(this, viewModelFactory)[MovieViewModel::class.java]
-
             movieAdapter = MovieAdapter()
-
-            viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
+            movieViewModel.getMovies().observe(viewLifecycleOwner, { movies ->
                 if (movies != null) {
                     when (movies) {
                         is Resource.Loading -> {

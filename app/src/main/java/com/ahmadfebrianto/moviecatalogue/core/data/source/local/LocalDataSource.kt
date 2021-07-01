@@ -4,18 +4,7 @@ import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEnti
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.room.MovieDao
 import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val movieDao: MovieDao) {
-
-    companion object {
-        private var INSTANCE: LocalDataSource? = null
-
-        fun getInstance(dao: MovieDao): LocalDataSource {
-            return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: LocalDataSource(dao)
-            }
-        }
-    }
-
+class LocalDataSource(private val movieDao: MovieDao) {
 
     fun getAllMovies(): Flow<List<MovieEntity>> {
         return movieDao.getAllMovies()
