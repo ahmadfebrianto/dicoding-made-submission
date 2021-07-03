@@ -8,7 +8,7 @@ import androidx.paging.PositionalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.data_.DummyData
-import com.ahmadfebrianto.moviecatalogue.movies.MovieViewModel
+import com.ahmadfebrianto.moviecatalogue.home.MovieViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before

@@ -13,14 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
 
-        <activity android:name="com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity" />
-        <activity android:name="com.ahmadfebrianto.moviecatalogue.HomeActivity">
+        <activity android:name=".detail.DetailMovieActivity" />
+        <activity android:name=".home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".favorite.FavoriteActivity" />
     </application>
 
 </manifest>

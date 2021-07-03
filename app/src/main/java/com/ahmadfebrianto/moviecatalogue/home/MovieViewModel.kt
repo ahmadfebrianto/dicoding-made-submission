@@ -1,4 +1,4 @@
-package com.ahmadfebrianto.moviecatalogue.movies
+package com.ahmadfebrianto.moviecatalogue.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

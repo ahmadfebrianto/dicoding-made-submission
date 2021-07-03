@@ -28,7 +28,7 @@ class DetailMovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.detail_page)
+        supportActionBar?.title = getString(R.string.detail_movie)
 
         activityDetailBinding = ActivityDetailBinding.inflate(layoutInflater)
         contentActivityDetailBinding = activityDetailBinding.detailContent

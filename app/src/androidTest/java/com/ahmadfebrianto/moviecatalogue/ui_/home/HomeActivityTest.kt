@@ -8,9 +8,9 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
-import com.ahmadfebrianto.moviecatalogue.HomeActivity
 import com.ahmadfebrianto.moviecatalogue.R
 import com.ahmadfebrianto.moviecatalogue.core.utils.EspressoIdlingResource
+import com.ahmadfebrianto.moviecatalogue.home.HomeActivity
 import org.junit.After
 import org.junit.Before
 import org.junit.FixMethodOrder

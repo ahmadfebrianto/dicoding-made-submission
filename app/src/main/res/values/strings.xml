@@ -24,15 +24,12 @@
     <string name="favorite">Favorite</string>
 
     <string name="title_activity_favorite">FavoriteActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
 
     <!--DETAIL PAGE-->
-    <string name="detail_page">Detail Page</string>
+    <string name="detail_movie">Detail Movie</string>
 
     <!--FAVORITE PAGE-->
-    <string name="favorites_page">Favorite Page</string>
-    <string name="favorite_catalog">Favorite Catalog</string>
+    <string name="favorite_movies">Favorite Movies</string>
 
     <string name="data_empty">No data at the moment</string>
     <string name="language">Language</string>

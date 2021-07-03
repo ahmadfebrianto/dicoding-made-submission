@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeActivity">
+    tools:context=".home.HomeActivity">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/home_tabs"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_movies"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/rv_base_item" />
+
+    <ProgressBar
+        android:id="@+id/rv_progress_bar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:tabBackground="@drawable/tab_color_selector"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/gray" />
+        android:layout_gravity="center"
+        android:visibility="invisible" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/home_view_pager"
+    <TextView
+        android:id="@+id/tv_movies_empty"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/data_empty"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:visibility="invisible" />
 
-</LinearLayout>
+</FrameLayout>
