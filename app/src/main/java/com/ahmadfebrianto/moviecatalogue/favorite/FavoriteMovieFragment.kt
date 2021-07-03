@@ -1,5 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
 import com.ahmadfebrianto.moviecatalogue.databinding.FragmentMoviesBinding
+import com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteMovieFragment : Fragment() {
@@ -30,6 +32,13 @@ class FavoriteMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             favoriteMovieAdapter = MovieAdapter()
+
+            favoriteMovieAdapter.onItemClick = {
+                val intent = Intent(activity, DetailMovieActivity::class.java)
+                intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, it)
+                startActivity(intent)
+            }
+
             favoriteMovieViewModel.getFavoriteMovies().observe(viewLifecycleOwner, { movies ->
                 favoriteMovieAdapter.setData(movies)
                 if (movies.isNullOrEmpty()) {

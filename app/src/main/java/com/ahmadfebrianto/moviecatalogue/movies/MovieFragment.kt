@@ -1,5 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.movies
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
 import com.ahmadfebrianto.moviecatalogue.databinding.FragmentMoviesBinding
+import com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MovieFragment : Fragment() {
@@ -32,6 +34,13 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             movieAdapter = MovieAdapter()
+
+            movieAdapter.onItemClick = {
+                val intent = Intent(activity, DetailMovieActivity::class.java)
+                intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, it)
+                startActivity(intent)
+            }
+
             movieViewModel.getMovies().observe(viewLifecycleOwner, { movies ->
                 if (movies != null) {
                     when (movies) {

@@ -19,7 +19,8 @@ class MovieRepository(
 ) : DomainRepository {
 
     override fun getAllMovies(): Flow<Resource<List<Movie>>> {
-        return object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+        return object :
+            com.ahmadfebrianto.moviecatalogue.core.data.NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovies().map {
                     DataMapper.mapEntitiesToDomain(it)

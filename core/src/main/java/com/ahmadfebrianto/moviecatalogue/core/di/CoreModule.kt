@@ -1,7 +1,6 @@
 package com.ahmadfebrianto.moviecatalogue.core.di
 
 import androidx.room.Room
-import com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.LocalDataSource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.room.MovieDatabase
 import com.ahmadfebrianto.moviecatalogue.core.data.source.remote.RemoteDataSource
@@ -49,5 +48,11 @@ val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     factory { AppExecutors() }
-    single<DomainRepository> { MovieRepository(get(), get(), get()) }
+    single<DomainRepository> {
+        com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository(
+            get(),
+            get(),
+            get()
+        )
+    }
 }

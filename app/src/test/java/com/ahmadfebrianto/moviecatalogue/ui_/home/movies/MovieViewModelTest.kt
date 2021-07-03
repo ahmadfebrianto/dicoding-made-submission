@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.paging.PositionalDataSource
-import com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository
 import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.data.source.local.entity.MovieEntity
 import com.ahmadfebrianto.moviecatalogue.data_.DummyData
@@ -31,7 +30,7 @@ class MovieViewModelTest {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var movieRepository: MovieRepository
+    private lateinit var movieRepository: com.ahmadfebrianto.moviecatalogue.core.data.MovieRepository
 
     @Mock
     private lateinit var movieObserver: Observer<Resource<PagedList<MovieEntity>>>
