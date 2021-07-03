@@ -22,7 +22,7 @@ import java.util.concurrent.Executors
 @RunWith(MockitoJUnitRunner::class)
 class FavoriteMovieViewModelTest {
 
-    private lateinit var favoriteMovieViewModel: FavoriteMovieViewModel
+    private lateinit var favoriteMovieViewModel: com.ahmadfebrianto.moviecatalogue.favorite.FavoriteMovieViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -35,7 +35,8 @@ class FavoriteMovieViewModelTest {
 
     @Before
     fun setUp() {
-        favoriteMovieViewModel = FavoriteMovieViewModel(movieRepository)
+        favoriteMovieViewModel =
+            com.ahmadfebrianto.moviecatalogue.favorite.FavoriteMovieViewModel(movieRepository)
     }
 
     @Test

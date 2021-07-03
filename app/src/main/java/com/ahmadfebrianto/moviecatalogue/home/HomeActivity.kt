@@ -1,6 +1,7 @@
 package com.ahmadfebrianto.moviecatalogue.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,7 +15,6 @@ import com.ahmadfebrianto.moviecatalogue.core.data.source.Resource
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
 import com.ahmadfebrianto.moviecatalogue.databinding.ActivityMainBinding
 import com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity
-import com.ahmadfebrianto.moviecatalogue.favorite.FavoriteActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -76,8 +76,8 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_favorite) {
-            val intent = Intent(this, FavoriteActivity::class.java)
-            startActivity(intent)
+            val uri = Uri.parse("moviecatalogue://favorite")
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
         return super.onOptionsItemSelected(item)
     }

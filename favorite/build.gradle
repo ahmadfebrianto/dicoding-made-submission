@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.dynamic-feature'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
@@ -7,31 +7,18 @@ plugins {
 
 apply from: '../shared_dependencies.gradle'
 
-//def localProperties = new Properties()
-//localProperties.load(new FileInputStream(rootProject.file("local.properties")))
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.ahmadfebrianto.moviecatalogue"
+        applicationId "com.ahmadfebrianto.moviecatalogue.favorite"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-//        buildConfigField "String", "API_KEY", localProperties['API_KEY']
-    }
-
-    useLibrary 'android.test.mock'
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
     }
 
     buildTypes {
@@ -46,18 +33,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
     buildFeatures {
         viewBinding true
     }
-    dynamicFeatures = [':favorite']
 }
 
 dependencies {
+    implementation project(":app")
     implementation project(":core")
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadfebrianto.moviecatalogue.R
 import com.ahmadfebrianto.moviecatalogue.core.ui.MovieAdapter
-import com.ahmadfebrianto.moviecatalogue.databinding.ActivityFavoriteBinding
 import com.ahmadfebrianto.moviecatalogue.detail.DetailMovieActivity
+import com.ahmadfebrianto.moviecatalogue.di.favoriteModules
+import com.ahmadfebrianto.moviecatalogue.favorite.databinding.ActivityFavoriteBinding
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -23,6 +25,8 @@ class FavoriteActivity : AppCompatActivity() {
 
         favoriteMovieBinding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(favoriteMovieBinding.root)
+
+        loadKoinModules(favoriteModules)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.favorite_movies)
