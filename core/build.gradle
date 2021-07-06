@@ -25,6 +25,7 @@ android {
 
         buildConfigField "String", "API_KEY", localProperties['API_KEY']
         buildConfigField "String", "PASS_KEY", localProperties['PASS_KEY']
+        buildConfigField "String", "HOST_PIN_1", localProperties['HOST_PIN_1']
 
     }
 
