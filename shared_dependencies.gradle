@@ -19,4 +19,7 @@ dependencies {
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
 
+    /*Leak Canary*/
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
 }
