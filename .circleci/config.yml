@@ -7,6 +7,8 @@
       build:
         executor: android/android
         steps:
+          - run:
+              command: rm -rf /home/circleci/project/.git
           - checkout
           # - restore_cache:
           #     key: android-orb-v1-
